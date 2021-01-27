@@ -13,8 +13,9 @@
       int n = T.length;
       return qselRecursif(p-1, T, 0, n);
    }
-   static int qselIteratif(int p, int[] T){ int n = T.length; // 0 <= p < n 
-      int pprime = … ,  i =….,  j = … ; // I(p’, i, j)
+   static int qselIteratif(int p, int[] T){ 
+      int n = T.length; // 0 <= p < n 
+      int pprime = p,  i = 0.,  j = n ; // I(p’, i, j)
       while (!(…)) { // I(p’,i,j) et non arrêt
           int k = segmenter(T, i, j); 
           int pppi = pprime + i ;
