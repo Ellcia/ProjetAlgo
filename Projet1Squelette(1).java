@@ -2,8 +2,29 @@
 // Exercice 1 : CALCUL DE LA MEDIANE
 
    static int qselRecursif(int p, int[] T, int i, int j){ int m = j-i; // 0 <= p < m
-      ...
-   }
+   int m = j-i; // 0 <= p < m
+    
+    if (m < 2){
+        return T[i];
+    }
+      
+    int k=segmenter(T, i, j);
+    System.out.println("i et j et k et p:" + i + " " + j +" " + k + " " + p);
+    
+    if (p + i== k)
+        {return T[k];}
+        
+    else if (i <= p + i && p + i < k)
+        {return qselRecursif(p, T, i, k);}
+        
+    else if (k+1 <= p + i && p + i <= j )
+        {return qselRecursif(p, T, k+1, j);}
+    
+    
+    System.out.println("bonjour");
+    
+    return T[k] ;
+    }
 
 
 
