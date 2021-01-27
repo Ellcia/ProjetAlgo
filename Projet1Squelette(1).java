@@ -1,8 +1,14 @@
 
 // Exercice 1 : CALCUL DE LA MEDIANE
+
    static int qselRecursif(int p, int[] T, int i, int j){ int m = j-i; // 0 <= p < m
       ...
    }
+
+
+
+
+
    public static int quickSelectRecursif(int p, int[] T){ // 1 <= p <= n;
       int n = T.length;
       return qselRecursif(p-1, T, 0, n);
