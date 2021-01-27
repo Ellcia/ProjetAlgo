@@ -19,10 +19,7 @@
         
     else if (k+1 <= p + i && p + i <= j )
         {return qselRecursif(p, T, k+1, j);}
-    
-    
-    System.out.println("bonjour");
-    
+        
     return T[k] ;
     }
 
