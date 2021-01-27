@@ -41,9 +41,9 @@
              { … } // I(p’, i, j)
           else
           if ( k <= pppi && pppi < k+1 ) // I(…, …, …)
-             { …… } // I(p’, i, j)
+             { return T[k] } // I(p’, i, j)
           else //  k+1 <= pppi && pppi < j ) // I(…, …, …)
-             { ……..} // I(p’, i, j)
+             { return T[k];} // I(p’, i, j)
       // I(p’, i, j) et arrêt, donc la p-ème valeur de T[ 0 : n ] est …
       return …;
    }
