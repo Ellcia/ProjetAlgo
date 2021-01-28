@@ -7,11 +7,10 @@ public class MyClass {
       
    	int[] T = {9,1,8,2,7,3,4,6,5};
       int x= quickSelectIteratif(2,T);
-		
         
-      //System.out.println(x);
+      System.out.println(x);
         
-       System.out.println(quickSelectRecursif(8,T));
+      quickSelectRecursif(8,T);
       
 	}
 
@@ -26,15 +25,17 @@ public class MyClass {
         	return T[i]; //Taille du tableau < 2 donc seulement un élément et on le retourne
     	}
     	int k=segmenter(T, i, j); // on segmente le tableau
+	   p -= i;
     	System.out.println("i et k et j et p:" + i + " " + k +" " + j + " " + p);
-    
+    	
+	   
     	if (p == k) // p + i == k et k est a la bonne position, donc on retourne k
         	{return T[k];}  
         
-    	else if (i <= (p) && (p + 0) < k) // p + i est dans la partie gauche du tableau, on recommence la fonction avec un tableau réduit (allant de  i a k)
+    	else if (i <= (p + i) && (p + i) < k) // p est dans la partie gauche du tableau, on recommence la fonction avec un tableau réduit (allant de  i a k)
         	{return qselRecursif(p, T, i, k);}
         
-    	else if (k+1 <= (p) && (p + 0) <= j ) // p + i est dans la partie droite du tableau, on recommence la fonction avec un tableau réduit (allant de  k+1 a j)
+    	else if (k+1 <= (p + i) && (p + i) <= j ) // p est dans la partie droite du tableau, on recommence la fonction avec un tableau réduit (allant de  k+1 a j)
         	{return qselRecursif(p, T, k+1, j);}
    	
 		System.out.println("pas bon"); 
