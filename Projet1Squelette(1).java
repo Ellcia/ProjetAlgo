@@ -3,47 +3,42 @@
 import java.util.Random;
 
 public class MyClass {
-   public static void main(String args[]) {
+	public static void main(String args[]) {
       
-        int[] T = {9,1,8,2,7,3,4,6,5};
-         int x= quickSelectIteratif(2,T);
+   	int[] T = {9,1,8,2,7,3,4,6,5};
+      int x= quickSelectIteratif(2,T);
         
-        System.out.println(x);
+      System.out.println(x);
         
-        quickSelectRecursif(8,T);
+      quickSelectRecursif(8,T);
       
-    }
-
-   static int qselRecursif(int p, int[] T, int i, int j){ int m = j-i; // 0 <= p < m
-   int m = j-i; // 0 <= p < m
-    
-    if (m < 2){
-        return T[i];
-    }
-      
-    int k=segmenter(T, i, j);
-    System.out.println("i et j et k et p:" + i + " " + j +" " + k + " " + p);
-    
-    if (p + i== k)
-        {return T[k];}
-        
-    else if (i <= p + i && p + i < k)
-        {return qselRecursif(p, T, i, k);}
-        
-    else if (k+1 <= p + i && p + i <= j )
-        {return qselRecursif(p, T, k+1, j);}
-        
-    return T[k] ;
-    }
-
-
-
-
+	}
 
    public static int quickSelectRecursif(int p, int[] T){ // 1 <= p <= n;
-      int n = T.length;
-      return qselRecursif(p-1, T, 0, n);
+   	int n = T.length;
+   	return qselRecursif(p-1, T, 0, n);
    }
+   static int qselRecursif(int p, int[] T, int i, int j){
+    	int m = j - i; // 0 <= p < m
+    
+    	if (m < 2){
+        	return T[i]; //Taille du tableau < 2 donc seulement un élément et on le retourne
+    	}
+    	int k=segmenter(T, i, j); // on segmente le tableau
+    	System.out.println("i et k et j et p:" + i + " " + k +" " + j + " " + p);
+    
+    	if (p == k) // p + i == k et k est a la bonne position, donc on retourne k
+        	{return T[k];}  
+        
+    	else if (i <= (p) && (p + 0) < k) // p + i est dans la partie gauche du tableau, on recommence la fonction avec un tableau réduit (allant de  i a k)
+        	{return qselRecursif(p, T, i, k);}
+        
+    	else if (k+1 <= (p) && (p + 0) <= j ) // p + i est dans la partie droite du tableau, on recommence la fonction avec un tableau réduit (allant de  k+1 a j)
+        	{return qselRecursif(p, T, k+1, j);}
+   	
+		System.out.println("pas bon"); 
+    	return -1 ;
+    }
    
    static int qselIteratif(int p, int[] T){ 
       int n = T.length; // 0 <= p < n 
