@@ -2,6 +2,15 @@
 // Exercice 1 : CALCUL DE LA MEDIANE
 import java.util.Random;
 
+public class MyClass {
+   public static void main(String args[]) {
+      
+        int[] T = {9,1,8,2,7,3,4,6,5};
+        
+        quickSelectRecursif(8,T);
+      
+    }
+
    static int qselRecursif(int p, int[] T, int i, int j){ int m = j-i; // 0 <= p < m
    int m = j-i; // 0 <= p < m
     
