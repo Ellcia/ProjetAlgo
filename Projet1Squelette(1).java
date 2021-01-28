@@ -37,7 +37,7 @@
       while (!(j<=i)) { // I(p’,i,j) et non arrêt
           int k = segmenter(T, i, j); 
           int pppi = pprime + i ;
-          if ( i < = pppi && pppi < k ) // I(p',i,k)
+          if ( i <= pppi && pppi < k ) // I(p',i,k)
              {j=k;} // I(p’, i, j)
           else
           if ( k <= pppi && pppi < k+1 ) // I(0, k, k+1)
