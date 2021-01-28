@@ -37,11 +37,13 @@
       while (!(j<=i)) { // I(p’,i,j) et non arrêt
           int k = segmenter(T, i, j); 
           int pppi = pprime + i ;
-          if ( i < = pppi && pppi < k ) // I(…, …, …)
-             {j=k-1;} // I(p’, i, j)
+          if ( i < = pppi && pppi < k ) // I(p',i,k)
+             {j=k;} // I(p’, i, j)
           else
-          if ( k <= pppi && pppi < k+1 ) // I(…, …, …)
-             { return T[k] } // I(p’, i, j)
+          if ( k <= pppi && pppi < k+1 ) // I(0, k, k+1)
+             { p'=0;
+             i=k;
+             j=k+1;} // I(p’, i, j)
           else //  k+1 <= pppi && pppi < j ) // I(…, …, …)
              { i=k+1;} // I(p’, i, j)
       // I(p’, i, j) et arrêt, donc la p-ème valeur de T[ 0 : n ] est …
