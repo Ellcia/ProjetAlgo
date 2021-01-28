@@ -6,6 +6,9 @@ public class MyClass {
    public static void main(String args[]) {
       
         int[] T = {9,1,8,2,7,3,4,6,5};
+         int x= quickSelectIteratif(2,T);
+        
+        System.out.println(x);
         
         quickSelectRecursif(8,T);
       
@@ -41,22 +44,23 @@ public class MyClass {
       int n = T.length;
       return qselRecursif(p-1, T, 0, n);
    }
+   
    static int qselIteratif(int p, int[] T){ 
       int n = T.length; // 0 <= p < n 
       int pprime = p,  i = 0,  j = n ; // I(p’, i, j)
-      while (!(j<=i)) { // I(p’,i,j) et non arrêt
+      while (!(pprime==0 && j-i==1)) { // I(p’,i,j) et non arrêt
           int k = segmenter(T, i, j); 
           int pppi = pprime + i ;
           if ( i <= pppi && pppi < k ) // I(p',i,k)
              {j=k;} // I(p’, i, j)
           else
           if ( k <= pppi && pppi < k+1 ) // I(0, k, k+1)
-             { p'=0;
+             { pprime=0;
              i=k;
              j=k+1;} // I(p’, i, j)
           else //  k+1 <= pppi && pppi < j ) // I(p'-(k+1-i),k+1,j)
-             { p'= p'-(k+1-i); i=k+1;} // I(p’, i, j)
-      // I(p’, i, j) et arrêt, donc la p-ème valeur de T[ 0 : n ] est …
+             { pprime= pprime-(k+1-i); i=k+1;} // I(p’, i, j)
+      // I(p’, i, j) et arrêt, donc la p-ème valeur de T[ 0 : n ] est T[i]
       }
       return T[i];
    }
@@ -64,6 +68,8 @@ public class MyClass {
       // 1 <= p <= n;
       return qselIteratif(p-1, T);
    }
+  
+
    static int medianeRecursive(int[] T){ int n = T.length;
    /* Retourne la valeur médiane de T[0:n]. C'est la valeur m du tableau
    telle que T contient autant de valeurs <= à m que de valeurs > à m.
