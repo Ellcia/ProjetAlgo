@@ -1,5 +1,6 @@
 
 // Exercice 1 : CALCUL DE LA MEDIANE
+import java.util.Random;
 
    static int qselRecursif(int p, int[] T, int i, int j){ int m = j-i; // 0 <= p < m
    int m = j-i; // 0 <= p < m
