@@ -45,8 +45,8 @@ import java.util.Random;
              { p'=0;
              i=k;
              j=k+1;} // I(p’, i, j)
-          else //  k+1 <= pppi && pppi < j ) // I(…, …, …)
-             { i=k+1;} // I(p’, i, j)
+          else //  k+1 <= pppi && pppi < j ) // I(p'-(k+1-i),k+1,j)
+             { p'= p'-(k+1-i); i=k+1;} // I(p’, i, j)
       // I(p’, i, j) et arrêt, donc la p-ème valeur de T[ 0 : n ] est …
       }
       return T[i];
