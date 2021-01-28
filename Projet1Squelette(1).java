@@ -7,10 +7,11 @@ public class MyClass {
       
    	int[] T = {9,1,8,2,7,3,4,6,5};
       int x= quickSelectIteratif(2,T);
+		
         
-      System.out.println(x);
+      //System.out.println(x);
         
-      quickSelectRecursif(8,T);
+       System.out.println(quickSelectRecursif(8,T));
       
 	}
 
