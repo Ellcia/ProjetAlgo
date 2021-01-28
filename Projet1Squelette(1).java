@@ -21,25 +21,20 @@ public class MyClass {
    static int qselRecursif(int p, int[] T, int i, int j){
     	int m = j - i; // 0 <= p < m
     
-    	if (m < 2){
+    	if (m==1 &&p==0){
         	return T[i]; //Taille du tableau < 2 donc seulement un élément et on le retourne
     	}
     	int k=segmenter(T, i, j); // on segmente le tableau
-	   p -= i;
-    	System.out.println("i et k et j et p:" + i + " " + k +" " + j + " " + p);
-    	
-	   
-    	if (p == k) // p + i == k et k est a la bonne position, donc on retourne k
+        
+    	if (i <= p+i && (p + i) < k) // p + i est dans la partie gauche du tableau, on recommence la fonction avec un tableau réduit (allant de  i a k)
+        	{return qselRecursif(p, T, i, k);}
+        	
+        if (p+i<=k && p+i<k+1) // p + i == k et k est a la bonne position, donc on retourne k
         	{return T[k];}  
         
-    	else if (i <= (p + i) && (p + i) < k) // p est dans la partie gauche du tableau, on recommence la fonction avec un tableau réduit (allant de  i a k)
-        	{return qselRecursif(p, T, i, k);}
-        
-    	else if (k+1 <= (p + i) && (p + i) <= j ) // p est dans la partie droite du tableau, on recommence la fonction avec un tableau réduit (allant de  k+1 a j)
-        	{return qselRecursif(p, T, k+1, j);}
+    //	else if (k+1 <= (p+i) && (p + i) < j ) // p + i est dans la partie droite du tableau, on recommence la fonction avec un tableau réduit (allant de  k+1 a j)
+        	return qselRecursif(p-(k-i), T, k, j);
    	
-		System.out.println("pas bon"); 
-    	return -1 ;
     }
    
    static int qselIteratif(int p, int[] T){ 
