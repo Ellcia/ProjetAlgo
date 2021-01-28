@@ -45,7 +45,7 @@
           else //  k+1 <= pppi && pppi < j ) // I(…, …, …)
              { i=k+1;} // I(p’, i, j)
       // I(p’, i, j) et arrêt, donc la p-ème valeur de T[ 0 : n ] est …
-      return T[p];
+      return T[i];
    }
    public static int quickSelectIteratif(int p, int[] T){ int n = T.length;
       // 1 <= p <= n;
