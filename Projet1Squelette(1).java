@@ -33,7 +33,7 @@
    }
    static int qselIteratif(int p, int[] T){ 
       int n = T.length; // 0 <= p < n 
-      int pprime = p,  i = 0.,  j = n ; // I(p’, i, j)
+      int pprime = p,  i = 0,  j = n ; // I(p’, i, j)
       while (!(j<=i)) { // I(p’,i,j) et non arrêt
           int k = segmenter(T, i, j); 
           int pppi = pprime + i ;
