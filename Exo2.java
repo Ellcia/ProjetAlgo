@@ -107,9 +107,9 @@ public class Projet1{
    static void qspvd(objet[] Objets, int i, int j){
    // quicksort par valeurs décroissantes de Objets[i:j]
       if (j-i < 2) return; // valeurs de Objets[i:j] sont décroissantes
-        int k = segmenter(Objets, i, j); //  valeurs de Objets[i:k] >=  valeurs de Objets[k:k+1] >  valeurs de Objets[k+1:j]
-        qs(Objets,i,k); //  valeurs de Objets[i:k] sont décroissantes
-        qs(Objets,k+1,j); //  valeurs de Objets[k+1:j] sont décroissantes
+        int k = spvd(Objets, i, j); //  valeurs de Objets[i:k] >=  valeurs de Objets[k:k+1] >  valeurs de Objets[k+1:j]
+        qspvd(Objets,i,k); //  valeurs de Objets[i:k] sont décroissantes
+        qspvd(Objets,k+1,j); //  valeurs de Objets[k+1:j] sont décroissantes
 
 
         //  valeurs de Objets[i:k] et  valeurs de Objets[k+1:j] décroissantes et  valeurs de Objets[i:k] >=  valeurs de Objets[k:k+1] > valeurs de Objets[k+1:j]
