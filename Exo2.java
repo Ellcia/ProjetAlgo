@@ -69,9 +69,19 @@ public class Projet1{
    // Un ensemble de n objets aléatoires à valeurs et tailles  dans [0:vsup+1] et [1:tsup+1]
    static objet[] ObjetsAleatoires(int n, int vsup, int tsup){
       objet[] E = new objet[n]; // ensemble de n objets
-      ...
+      for(int i =0, i<n, i++)
+      {
+        int v = nextInt(vsup+1);
+        int t = 1+nextInt(tsup+1);
+
+        objet p = new objet(i,v,t,v/t);
+    
+         E[i] = p;
+      }
+
        return E;
    }
+   
    static int valeurDuSac(boolean[] sac, objet[] Objets){int n = sac.length;
       objet[] ooi = new objet[n]; // objets dans l'ordre initial : 
       // ooi[0] est l'objet de numéro i = 0, ..., ooi[n-1] est l'objet de numéro n-1.
