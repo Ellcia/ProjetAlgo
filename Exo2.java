@@ -106,7 +106,15 @@ public class Projet1{
    }
    static void qspvd(objet[] Objets, int i, int j){
    // quicksort par valeurs décroissantes de Objets[i:j]
-      ...
+      if (j-i < 2) return; // valeurs de Objets[i:j] sont décroissantes
+        int k = segmenter(Objets, i, j); //  valeurs de Objets[i:k] >=  valeurs de Objets[k:k+1] >  valeurs de Objets[k+1:j]
+        qs(Objets,i,k); //  valeurs de Objets[i:k] sont décroissantes
+        qs(Objets,k+1,j); //  valeurs de Objets[k+1:j] sont décroissantes
+
+
+        //  valeurs de Objets[i:k] et  valeurs de Objets[k+1:j] décroissantes et  valeurs de Objets[i:k] >=  valeurs de Objets[k:k+1] > valeurs de Objets[k+1:j]
+        // donc  valeurs de Objets[i:j] décroissantes.
+
    }
    static void qspdd(objet[] Objets, int i, int j){// quicksort par densites décroissantes
       ...
@@ -115,7 +123,25 @@ public class Projet1{
    // segmentation de Objets[i:j] par valeurs décroissantes
       // I(k,jp) : 
       //   valeurs de Objets[i:k] >= valeurs de Objets[k] > valeurs de Objets[k+1:jp]
-      ...      
+      // calcule une permutation des valeurs de T[i:j] qui vérifie
+    // T[i:k] >= T[k:k+1] > T[k+1:j], et retourne l'indice k.
+    // I(k,j') : T[i:k] >= T[k:k+1] >T[k+1:j']
+        int h = hasard(i,j);
+        permuter(T,i,h);
+        int k = i, jp = k+1; // I(k,j') est vraie
+        while (jp < j)
+            if (T[jp].v < T[k].v) // I(k,j'+1) est vraie
+                jp = jp+1;
+            else { permuter(T,jp,k+1);
+                permuter(T,k+1,k);
+                // I(k+1,j'+1) est vraie
+                k = k+1; // I(k,j'+1) est vraie
+                jp = jp+1; // I(k,j') est vraie
+            }
+
+
+            // I(k,j) vraie, i.e. T[i:k] >= T[k:k+1] > T[k+1:j]
+      
       return k;
    }
    static int spdd(objet[] Objets, int i, int j){
