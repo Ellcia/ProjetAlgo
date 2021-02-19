@@ -127,7 +127,15 @@ public class Projet1{
 
    }
    static void qspdd(objet[] Objets, int i, int j){// quicksort par densites décroissantes
-      ...
+      if (j-i < 2) return; // densités de Objets[i:j] sont décroissantes
+        int k = spvd(Objets, i, j); //  densités de Objets[i:k] >=  densités de Objets[k:k+1] >  densités de Objets[k+1:j]
+        qspvd(Objets,i,k); //  densités de Objets[i:k] sont décroissantes
+        qspvd(Objets,k+1,j); //  densités de Objets[k+1:j] sont décroissantes
+
+
+        //  densités de Objets[i:k] et  densités de Objets[k+1:j] décroissantes et  densités de Objets[i:k] >=  densités de Objets[k:k+1] > densités de Objets[k+1:j]
+        // donc  densités de Objets[i:j] décroissantes.
+
    }
    static int spvd(objet[] Objets, int i, int j){
    // segmentation de Objets[i:j] par valeurs décroissantes
@@ -155,7 +163,21 @@ public class Projet1{
    // segmentation de Objets[i:j] par densités décroissantes
       // I(k,jp) : 
       //   densités de Objets[i:k] >= densités de Objets[k:k+1] > densités de Objets[k+1:jp]  
-      ...
+      int h = hasard(i,j);
+        permuter(Objets,i,h);
+        int k = i, jp = k+1; // I(k,j') est vraie
+        while (jp < j)
+            if (Objets[jp].d < Objets[k].d) // I(k,j'+1) est vraie
+                jp = jp+1;
+            else { permuter(Objets,jp,k+1);
+                permuter(Objets,k+1,k);
+                // I(k+1,j'+1) est vraie
+                k = k+1; // I(k,j'+1) est vraie
+                jp = jp+1; // I(k,j') est vraie
+            }
+
+
+            // I(k,j) vraie, donc densités de Objets[i:k] >= densités de Objets[k:k+1] > densités de Objets[k+1:j]
       return k;
    }
    static void permuter(objet[] Objets, int i, int j){
