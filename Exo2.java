@@ -75,7 +75,10 @@ public class Projet1{
    static int valeurDuSac(boolean[] sac, objet[] Objets){int n = sac.length;
       objet[] ooi = new objet[n]; // objets dans l'ordre initial : 
       // ooi[0] est l'objet de numéro i = 0, ..., ooi[n-1] est l'objet de numéro n-1.
-      ooi =qspvd(Objets); // tri quicksort des objets par valeurs décroissantes
+      for (int i =0; i< n;i++){
+         ooi[i]=Objets[i];
+      }
+
       // calcul de la valeur du sac
       int vds = 0; // valeur du sac 
       for (int i =0; i< n;i++){
