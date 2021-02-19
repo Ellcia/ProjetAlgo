@@ -87,7 +87,17 @@ public class Projet1{
       int n = Objets.length, // cardinal de l'ensemble des objets
          r = c; // capacité disponible (restante) dans le sac ;
       boolean[] sac = new boolean[n];
-      ...
+      for (int i =0; i< n;i++)
+    {
+        if(Objets[i].t <= r)
+        {
+        r-= Objets[i].t;
+        sac[i] = true;
+        }
+        else
+        {sac[i] = false;}
+    }
+
       return sac;
    }
    static boolean[] sacGloutonParValeurs(objet[] Objets, int c){
