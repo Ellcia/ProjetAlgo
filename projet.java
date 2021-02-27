@@ -177,9 +177,9 @@ public class projet {
       int v = hasard(0,vsup+1);
       int t = hasard(1,tsup+1);
 
-      objet p = new objet(i,v,t,v/t);
+      objet p = new objet(i,v,t,v/t); // on crée un nouvel objet de valeur v comprise entre 0 et vsup+1 et de taille t comprise entre 1 et tsup+1
   
-       E[i] = p;
+       E[i] = p; //l'objet est ajouté à l'ensemble
     }
 
      return E;
@@ -196,7 +196,7 @@ public class projet {
     int vds = 0; // valeur du sac 
     for (int i =0; i< n;i++){
        if(sac[i]){
-          vds=vds+ooi[i].v;
+          vds=vds+ooi[i].v; // si il'objet est dans le sac, sa valeur s'ajoute à la valeur du sac 
        }
     }
 
@@ -210,12 +210,12 @@ public class projet {
     boolean[] sac = new boolean[n];
     for (int i =0; i< n;i++)
   {
-      if(Objets[i].t <= r)
+      if(Objets[i].t <= r) //si la taille de l'objet de dépasse pas celle restante du sac, alors il est mis dans le sac
       {
       r-= Objets[i].t;
       sac[i] = true;
       }
-      else
+      else //sinon il n'est pas mis dans le sac
       {sac[i] = false;}
   }
 
