@@ -1,3 +1,5 @@
+
+//Alice Guilloteau et Thibaud Leroux
 import java.util.Random;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
